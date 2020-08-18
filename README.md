@@ -35,16 +35,18 @@ pip install lingualytics
 
 ```python
 from lingualytics.preprocessing import remove_lessthan, remove_punctuation, remove_stopwords
+from lingualytics.stopwords import hi_stopwords,en_stopwords
 from texthero.preprocessing import remove_digits
-
+import pandas as pd
 df = pd.read_csv(
-   "https://github.com/lingualytics/py-lingualytis/raw/master/datasets/SAIL_2017/Processed_Data/Devanagari/validation.txt", header=None, sep='\t', names=['text','label']
+   "https://github.com/lingualytics/py-lingualytics/raw/master/datasets/SAIL_2017/Processed_Data/Devanagari/validation.txt", header=None, sep='\t', names=['text','label']
 )
-
+# pd.set_option('display.max_colwidth', None)
 df['clean_text'] = df['text'].pipe(remove_digits) \
                                     .pipe(remove_punctuation) \
-                                    .pipe(remove_lessthan) \
-                                    .pipe(remove_stop,stopwords=custom_stopwords)
+                                    .pipe(remove_lessthan,length=3) \
+                                    .pipe(remove_stopwords,stopwords=en_stopwords.union(hi_stopwords))
+print(df)
 ```
 
 ### Classification
@@ -60,7 +62,7 @@ You can just download `datasets/SAIL_2017/Processed Data/Devanagari` from the Gi
 from lingualytics.learner import Learner
 
 learner = Learner(data_dir='<path-to-train-data>',
-                output_dir='<path-to-output-predictions-and-save-model>')
+                output_dir='<path-to-output-predictions-and-save-the-model>')
 learner.fit()
 ```
 
