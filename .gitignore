@@ -1,0 +1,12 @@
+#############################
+# Lingualytics
+#############################
+
+build
+dist
+__pycache__
+.DS_Store
+.cache
+.vscode
+
+lingualytics.egg-info
