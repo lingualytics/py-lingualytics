@@ -20,8 +20,14 @@ Lingualytics is powered by powerful libraries like [Pytorch](https://pytorch.org
         - Train a classifier on your data to perform tasks like Sentiment Analysis
         - Evaluate the classifier with metrics like accuracy, f1 score, precision and recall
         - Use the trained tokenizer to tokenize text
-    - Some pretrained Huggingface models trained on codemixed datasets you can use
-        - [bert-base-multilingual-codemixed-cased-sentiment](https://huggingface.co/rohanrajpal/bert-base-multilingual-codemixed-cased-sentiment)
+
+## Pretrained Models
+
+Checkout some codemix friendly models that we have trained using Lingualytics
+
+- [bert-base-multilingual-codemixed-cased-sentiment](https://huggingface.co/rohanrajpal/bert-base-multilingual-codemixed-cased-sentiment)
+- [bert-base-en-es-codemix-cased](https://huggingface.co/rohanrajpal/bert-base-en-es-codemix-cased)
+- [bert-base-en-hi-codemix-cased](https://huggingface.co/rohanrajpal/bert-base-en-hi-codemix-cased)
 
 ## Installation
 
