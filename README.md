@@ -61,8 +61,9 @@ You can just download `datasets/SAIL_2017/Processed Data/Devanagari` from the Gi
 ```python
 from lingualytics.learner import Learner
 
-learner = Learner(data_dir='<path-to-train-data>',
-                output_dir='<path-to-output-predictions-and-save-the-model>')
+learner = Learner(model_type = 'bert',
+                model_name = 'bert-base-multilingual-cased',
+                dataset = 'SAIL-2017')
 learner.fit()
 ```
 

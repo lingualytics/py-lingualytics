@@ -1,23 +1,28 @@
 import argparse
-import logging
 import csv
-import sys
+import io
+import logging
 import os
 import random
-import numpy as np
-import torch
-from tabulate import tabulate
-from torch.utils.data import DataLoader, SequentialSampler, RandomSampler, Dataset
-from tqdm.auto import tqdm, trange
-from transformers import (
-    BertForSequenceClassification, BertTokenizer, XLMForSequenceClassification, XLMTokenizer,
-    XLMRobertaForSequenceClassification, XLMRobertaTokenizer, AdamW, get_linear_schedule_with_warmup
-)
-from sklearn.metrics import f1_score, precision_score, recall_score
+import sys
+import zipfile
 from pathlib import Path
 
-logger = logging.getLogger(__name__)
+import numpy as np
+import requests
+import torch
+from sklearn.metrics import f1_score, precision_score, recall_score
+from tabulate import tabulate
+from torch.utils.data import (DataLoader, Dataset, RandomSampler,
+                              SequentialSampler)
+from tqdm.auto import tqdm, trange
+from transformers import (AdamW, BertForSequenceClassification, BertTokenizer,
+                          XLMForSequenceClassification,
+                          XLMRobertaForSequenceClassification,
+                          XLMRobertaTokenizer, XLMTokenizer,
+                          get_linear_schedule_with_warmup)
 
+logger = logging.getLogger(__name__)
 class CustomDataset(Dataset):
     def __init__(self, input_ids, labels, present=None):
         self.input_ids = input_ids
@@ -35,11 +40,17 @@ class CustomDataset(Dataset):
 
 class Learner():
         
-    def __init__(self, data_dir, output_dir, lr = 5e-5, train_bs = 64, eval_bs = 64, model_type = 'bert', 
+    def __init__(self, data_dir='./dataset', output_dir='./output', lr = 5e-5, train_bs = 64, eval_bs = 64, model_type = 'bert', 
                 model_name = 'bert-base-multilingual-cased', save_steps = 1, max_seq_length = 256, seed = 42,
-                weight_decay = 0.0, adam_epsilon = 1e-8, max_grad_norm = 1.0, num_train_epochs = 5, device = None):
+                weight_decay = 0.0, adam_epsilon = 1e-8, max_grad_norm = 1.0, num_train_epochs = 5, device = None, dataset=None):
+        
         self.data_dir = Path(data_dir)
         self.output_dir = Path(output_dir)
+        self.data_dir.mkdir(exist_ok=True)
+        self.output_dir.mkdir(exist_ok=True)
+        if dataset is not None:
+            self.dataset = dataset
+            self.download_dataset()
         self.test_file = self.data_dir / 'test.txt'
         self.learning_rate = lr
         self.weight_decay = weight_decay
@@ -55,6 +66,14 @@ class Learner():
         self.max_seq_length = max_seq_length
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu') if device is None else device
         self.setup_model()
+
+    def download_dataset(self):
+        logger.info(f'Downloading and extracting dataset to {self.data_dir}')
+        url = f'https://github.com/lingualytics/py-lingualytics/raw/master/datasets/zip-files/{self.dataset}.zip'
+        r = requests.get(url)
+        z = zipfile.ZipFile(io.BytesIO(r.content))
+        z.extractall(self.data_dir)
+        self.data_dir = self.data_dir / self.dataset
 
     def setup_model(self):
         # Set up logging
