@@ -3,6 +3,8 @@
 Lingualytics is a Python library for dealing with code mixed text.  
 Lingualytics is powered by powerful libraries like [Pytorch](https://pytorch.org/), [Transformers](https://huggingface.co/transformers), [Texthero](https://texthero.org/), [NLTK](http://www.nltk.org/) and [Scikit-learn](https://scikit-learn.org/).
 
+![train-demo](github/train-demo.gif)
+
 ## Features
 
 1. Preprocessing
