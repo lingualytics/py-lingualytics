@@ -1,3 +1,5 @@
+# References : https://github.com/microsoft/GLUECoS/blob/master/Code/BertSequence.py
+
 import argparse
 import csv
 import io
