@@ -41,3 +41,4 @@ Classification
 
 .. automodule:: lingualytics.learner
     :members:
+    :undoc-members:
