@@ -1,0 +1,231 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&lt;no title&gt; &#8212; Lingualytics 0.1.3 documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar">
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+  <div class="bd-toc-item active">
+  
+
+  <ul class="nav bd-sidenav">
+      
+    </ul>
+
+</nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <p># Lingualytics : Easy codemixed analytics</p>
+<p>Lingualytics is a Python library for dealing with code mixed text.
+Lingualytics is powered by powerful libraries like [Pytorch](<a class="reference external" href="https://pytorch.org/">https://pytorch.org/</a>), [Transformers](<a class="reference external" href="https://huggingface.co/transformers">https://huggingface.co/transformers</a>), [Texthero](<a class="reference external" href="https://texthero.org/">https://texthero.org/</a>), [NLTK](<a class="reference external" href="http://www.nltk.org/">http://www.nltk.org/</a>) and [Scikit-learn](<a class="reference external" href="https://scikit-learn.org/">https://scikit-learn.org/</a>).</p>
+<p>![train-demo](github/train-demo.gif)</p>
+<p>## Features</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>Preprocessing</dt><dd><ul class="simple">
+<li><p>Remove stopwords</p></li>
+<li><p>Remove punctuations, with an option to add punctuations of your own language</p></li>
+<li><p>Remove words less than a character limit</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Representation</dt><dd><ul class="simple">
+<li><p>Find n-grams from given text</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>NLP</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>Classification using PyTorch</dt><dd><ul>
+<li><p>Train a classifier on your data to perform tasks like Sentiment Analysis</p></li>
+<li><p>Evaluate the classifier with metrics like accuracy, f1 score, precision and recall</p></li>
+<li><p>Use the trained tokenizer to tokenize text</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<p>## Pretrained Models</p>
+<p>Checkout some codemix friendly models that we have trained using Lingualytics</p>
+<ul class="simple">
+<li><p>[bert-base-multilingual-codemixed-cased-sentiment](<a class="reference external" href="https://huggingface.co/rohanrajpal/bert-base-multilingual-codemixed-cased-sentiment">https://huggingface.co/rohanrajpal/bert-base-multilingual-codemixed-cased-sentiment</a>)</p></li>
+<li><p>[bert-base-en-es-codemix-cased](<a class="reference external" href="https://huggingface.co/rohanrajpal/bert-base-en-es-codemix-cased">https://huggingface.co/rohanrajpal/bert-base-en-es-codemix-cased</a>)</p></li>
+<li><p>[bert-base-en-hi-codemix-cased](<a class="reference external" href="https://huggingface.co/rohanrajpal/bert-base-en-hi-codemix-cased">https://huggingface.co/rohanrajpal/bert-base-en-hi-codemix-cased</a>)</p></li>
+</ul>
+<p>## Installation</p>
+<p>Use the package manager [pip](<a class="reference external" href="https://pip.pypa.io/en/stable/">https://pip.pypa.io/en/stable/</a>) to install lingualytics.</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">pip</span> <span class="pre">install</span> <span class="pre">lingualytics</span>
+<span class="pre">`</span></code></p>
+<p>## Usage</p>
+<p>### Preprocessing</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>python
+from lingualytics.preprocessing import remove_lessthan, remove_punctuation, remove_stopwords
+from lingualytics.stopwords import hi_stopwords,en_stopwords
+from texthero.preprocessing import remove_digits
+import pandas as pd
+df = pd.read_csv(</p>
+<blockquote>
+<div><p>“<a class="reference external" href="https://github.com/lingualytics/py-lingualytics/raw/master/datasets/SAIL_2017/Processed_Data/Devanagari/validation.txt">https://github.com/lingualytics/py-lingualytics/raw/master/datasets/SAIL_2017/Processed_Data/Devanagari/validation.txt</a>”, header=None, sep=’t’, names=[‘text’,’label’]</p>
+</div></blockquote>
+<p>)
+# pd.set_option(‘display.max_colwidth’, None)
+df[‘clean_text’] = df[‘text’].pipe(remove_digits) </p>
+<blockquote>
+<div><p>.pipe(remove_punctuation) .pipe(remove_lessthan,length=3) .pipe(remove_stopwords,stopwords=en_stopwords.union(hi_stopwords))</p>
+</div></blockquote>
+<p>print(df)
+<a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
+<p>### Classification</p>
+<dl class="simple">
+<dt>The train data path should have 4 files</dt><dd><ul class="simple">
+<li><p>train.txt</p></li>
+<li><p>validation.txt</p></li>
+<li><p>test.txt</p></li>
+</ul>
+</dd>
+</dl>
+<p>You can just download <cite>datasets/SAIL_2017/Processed Data/Devanagari</cite> from the Github repository to try this out.</p>
+<p><a href="#id9"><span class="problematic" id="id10">``</span></a><a href="#id11"><span class="problematic" id="id12">`</span></a>python
+from lingualytics.learner import Learner</p>
+<dl class="simple">
+<dt>learner = Learner(model_type = ‘bert’,</dt><dd><p>model_name = ‘bert-base-multilingual-cased’,
+dataset = ‘SAIL-2017’)</p>
+</dd>
+</dl>
+<p>learner.fit()
+<a href="#id13"><span class="problematic" id="id14">``</span></a><a href="#id15"><span class="problematic" id="id16">`</span></a></p>
+<p>### Find topmost n-grams</p>
+<p><a href="#id17"><span class="problematic" id="id18">``</span></a><a href="#id19"><span class="problematic" id="id20">`</span></a>python
+from lingualytics.representation import get_ngrams
+import pandas as pd
+df = pd.read_csv(</p>
+<blockquote>
+<div><p>“<a class="reference external" href="https://github.com/jbesomi/texthero/raw/master/dataset/bbcsport.csv">https://github.com/jbesomi/texthero/raw/master/dataset/bbcsport.csv</a>”</p>
+</div></blockquote>
+<p>)</p>
+<p>ngrams = get_ngrams(df[‘text’],n=2)</p>
+<p>print(ngrams[:10])
+<a href="#id21"><span class="problematic" id="id22">``</span></a><a href="#id23"><span class="problematic" id="id24">`</span></a></p>
+<p>## Contributing</p>
+<p>Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.</p>
+<p>## License</p>
+<p>[MIT](<a class="reference external" href="https://choosealicense.com/licenses/mit/">https://choosealicense.com/licenses/mit/</a>)</p>
+<p>## References</p>
+<ol class="arabic simple">
+<li><p>Khanuja, Simran, et al. “GLUECoS: An Evaluation Benchmark for Code-Switched NLP.” arXiv preprint arXiv:2004.12376 (2020).</p></li>
+</ol>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020, Rohan Rajpal.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
