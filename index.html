@@ -93,11 +93,19 @@
         </li>
     
         <li class="nav-item toc-entry toc-h2">
+            <a href="#module-lingualytics.stopwords" class="nav-link">Stopwords</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
             <a href="#module-lingualytics.preprocessing" class="nav-link">Preprocessing</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
             <a href="#module-lingualytics.representation" class="nav-link">Representation</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#module-lingualytics.learner" class="nav-link">Classification</a>
         </li>
     
     </ul>
@@ -126,13 +134,51 @@
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
 </div>
+<div class="section" id="module-lingualytics.stopwords">
+<span id="stopwords"></span><h1>Stopwords<a class="headerlink" href="#module-lingualytics.stopwords" title="Permalink to this headline">¶</a></h1>
+</div>
 <div class="section" id="module-lingualytics.preprocessing">
 <span id="preprocessing"></span><h1>Preprocessing<a class="headerlink" href="#module-lingualytics.preprocessing" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="lingualytics.preprocessing.remove_lessthan">
 <code class="sig-prename descclassname">lingualytics.preprocessing.</code><code class="sig-name descname">remove_lessthan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">s</span><span class="p">:</span> <span class="n">pandas.core.series.Series</span></em>, <em class="sig-param"><span class="n">length</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.series.Series<a class="headerlink" href="#lingualytics.preprocessing.remove_lessthan" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the most important thing about a person.
-:param your_name: A string indicating the name of the person.</p>
+<dd><p>Removes words less than a specific length.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s</strong> (<em>pd.Series</em>) – A pandas series.</p></li>
+<li><p><strong>length</strong> (<em>int</em>) – The minimum length a word should have.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="lingualytics.preprocessing.remove_punctuation">
+<code class="sig-prename descclassname">lingualytics.preprocessing.</code><code class="sig-name descname">remove_punctuation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">s</span><span class="p">:</span> <span class="n">pandas.core.series.Series</span></em>, <em class="sig-param"><span class="n">punctuation</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'!&quot;#$%&amp;\'()*+,-./:;&lt;=&gt;?&#64;[\\]^_`{|}~'</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.series.Series<a class="headerlink" href="#lingualytics.preprocessing.remove_punctuation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes punctuation from the text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s</strong> (<em>pd.Series</em>) – A pandas series.</p></li>
+<li><p><strong>punctuation</strong> (<em>str</em>) – All the punctuation characters you want to remove.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="lingualytics.preprocessing.remove_stopwords">
+<code class="sig-prename descclassname">lingualytics.preprocessing.</code><code class="sig-name descname">remove_stopwords</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">s</span><span class="p">:</span> <span class="n">pandas.core.series.Series</span></em>, <em class="sig-param"><span class="n">stopwords</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#lingualytics.preprocessing.remove_stopwords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes stopwords from the text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s</strong> (<em>pd.Series</em>) – A pandas series.</p></li>
+<li><p><strong>stopwords</strong> (<em>list of str</em>) – A list of stopwords you want to remove.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -141,8 +187,117 @@
 <dl class="py function">
 <dt id="lingualytics.representation.get_ngrams">
 <code class="sig-prename descclassname">lingualytics.representation.</code><code class="sig-name descname">get_ngrams</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">s</span><span class="p">:</span> <span class="n">pandas.core.series.Series</span></em>, <em class="sig-param"><span class="n">n</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">delimiter</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">' '</span></em>, <em class="sig-param"><span class="n">merge</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#lingualytics.representation.get_ngrams" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the most important thing about a person.
-:param your_name: A string indicating the name of the person.</p>
+<dd><p>Return a list of n-grams in descending order of their occurences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – Length of n in n-grams.</p></li>
+<li><p><strong>delimiter</strong> (<em>str</em>) – The delimiter which separates any two words.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-lingualytics.learner">
+<span id="classification"></span><h1>Classification<a class="headerlink" href="#module-lingualytics.learner" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="lingualytics.learner.CustomDataset">
+<em class="property">class </em><code class="sig-prename descclassname">lingualytics.learner.</code><code class="sig-name descname">CustomDataset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_ids</span></em>, <em class="sig-param"><span class="n">labels</span></em>, <em class="sig-param"><span class="n">present</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#lingualytics.learner.CustomDataset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="lingualytics.learner.Learner">
+<em class="property">class </em><code class="sig-prename descclassname">lingualytics.learner.</code><code class="sig-name descname">Learner</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_dir</span><span class="o">=</span><span class="default_value">'./dataset'</span></em>, <em class="sig-param"><span class="n">output_dir</span><span class="o">=</span><span class="default_value">'./output'</span></em>, <em class="sig-param"><span class="n">dataset</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lr</span><span class="o">=</span><span class="default_value">5e-05</span></em>, <em class="sig-param"><span class="n">num_train_epochs</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">train_bs</span><span class="o">=</span><span class="default_value">64</span></em>, <em class="sig-param"><span class="n">eval_bs</span><span class="o">=</span><span class="default_value">64</span></em>, <em class="sig-param"><span class="n">model_type</span><span class="o">=</span><span class="default_value">'bert'</span></em>, <em class="sig-param"><span class="n">model_name</span><span class="o">=</span><span class="default_value">'bert-base-multilingual-cased'</span></em>, <em class="sig-param"><span class="n">save_steps</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">42</span></em>, <em class="sig-param"><span class="n">max_seq_length</span><span class="o">=</span><span class="default_value">256</span></em>, <em class="sig-param"><span class="n">weight_decay</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">adam_epsilon</span><span class="o">=</span><span class="default_value">1e-08</span></em>, <em class="sig-param"><span class="n">max_grad_norm</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">device</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#lingualytics.learner.Learner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of n-grams in descending order of their occurences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_dir</strong> (<em>str</em>) – Path of the dataset.</p></li>
+<li><p><strong>output_dir</strong> (<em>str</em>) – Path where the trained model and predictions will be saved.</p></li>
+<li><p><strong>dataset</strong> (<em>str</em>) – The dataset to use from list of our available datasets. Set to None to use your own dataset.</p></li>
+<li><p><strong>lr</strong> (<em>float</em>) – The learning rate for training.</p></li>
+<li><p><strong>num_train_epochs</strong> (<em>int</em>) – Number of epochs to train.</p></li>
+<li><p><strong>train_bs</strong> (<em>int</em>) – Batch size for training.</p></li>
+<li><p><strong>eval_bs</strong> (<em>int</em>) – Batch size while evaluating.</p></li>
+<li><p><strong>model_type</strong> (<em>str</em>) – The type of model to use from Huggingface.</p></li>
+<li><p><strong>model_name</strong> (<em>str</em>) – The name of the model to use from Huggingface.</p></li>
+<li><p><strong>save_steps</strong> (<em>int</em>) – Number of epochs to wait before saving the model again.</p></li>
+<li><p><strong>seed</strong> (<em>int</em>) – The seed to set at all places.</p></li>
+<li><p><strong>max_seq_length</strong> (<em>int</em>) – The maximum sequence length.</p></li>
+<li><p><strong>weight_decay</strong> (<em>float</em>) – Weight decay for training.</p></li>
+<li><p><strong>adam_epsilon</strong> (<em>float</em>) – Adam epsilon for training.</p></li>
+<li><p><strong>max_grad_norm</strong> (<em>float</em>) – Maximum gradient norm.</p></li>
+<li><p><strong>device</strong> (<em>str</em>) – Force the device ‘cpu’ or ‘gpu’ for Tensors</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="lingualytics.learner.Learner.acc_and_f1">
+<code class="sig-name descname">acc_and_f1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">preds</span></em>, <em class="sig-param"><span class="n">labels</span></em><span class="sig-paren">)</span><a class="headerlink" href="#lingualytics.learner.Learner.acc_and_f1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="lingualytics.learner.Learner.collate">
+<code class="sig-name descname">collate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">examples</span></em><span class="sig-paren">)</span><a class="headerlink" href="#lingualytics.learner.Learner.collate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="lingualytics.learner.Learner.convert_examples_to_features">
+<code class="sig-name descname">convert_examples_to_features</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">examples</span></em>, <em class="sig-param"><span class="n">label_list</span></em>, <em class="sig-param"><span class="n">tokenizer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#lingualytics.learner.Learner.convert_examples_to_features" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="lingualytics.learner.Learner.download_dataset">
+<code class="sig-name descname">download_dataset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lingualytics.learner.Learner.download_dataset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="lingualytics.learner.Learner.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mode</span></em>, <em class="sig-param"><span class="n">prefix</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#lingualytics.learner.Learner.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="lingualytics.learner.Learner.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lingualytics.learner.Learner.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download and finetune the model on the dataset.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="lingualytics.learner.Learner.get_labels">
+<code class="sig-name descname">get_labels</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lingualytics.learner.Learner.get_labels" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="lingualytics.learner.Learner.load_and_cache_examples">
+<code class="sig-name descname">load_and_cache_examples</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tokenizer</span></em>, <em class="sig-param"><span class="n">labels</span></em>, <em class="sig-param"><span class="n">mode</span></em><span class="sig-paren">)</span><a class="headerlink" href="#lingualytics.learner.Learner.load_and_cache_examples" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="lingualytics.learner.Learner.read_examples_from_file">
+<code class="sig-name descname">read_examples_from_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'train'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#lingualytics.learner.Learner.read_examples_from_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="lingualytics.learner.Learner.set_seed">
+<code class="sig-name descname">set_seed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lingualytics.learner.Learner.set_seed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="lingualytics.learner.Learner.setup_model">
+<code class="sig-name descname">setup_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lingualytics.learner.Learner.setup_model" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="lingualytics.learner.Learner.simple_accuracy">
+<code class="sig-name descname">simple_accuracy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">preds</span></em>, <em class="sig-param"><span class="n">labels</span></em><span class="sig-paren">)</span><a class="headerlink" href="#lingualytics.learner.Learner.simple_accuracy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="lingualytics.learner.Learner.train">
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train_dataset</span></em>, <em class="sig-param"><span class="n">valid_dataset</span></em><span class="sig-paren">)</span><a class="headerlink" href="#lingualytics.learner.Learner.train" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </div>

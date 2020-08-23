@@ -18,6 +18,12 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
+Stopwords
+==============
+
+.. automodule:: lingualytics.stopwords
+    :members:
+
 Preprocessing
 =============
 
@@ -29,3 +35,10 @@ Representation
 
 .. automodule:: lingualytics.representation
     :members:
+
+Classification
+==============
+
+.. automodule:: lingualytics.learner
+    :members:
+    :undoc-members:
