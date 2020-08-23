@@ -1,5 +1,14 @@
 
 # Lingualytics : Easy codemixed analytics
+![](https://img.shields.io/github/issues-raw/lingualytics/py-lingualytics?style=flat-square)
+![](https://img.shields.io/pypi/dm/lingualytics?style=flat-square)
+![](https://img.shields.io/website?url=https%3A%2F%2Flingualytics.tech%2F&style=flat-square)
+![](https://img.shields.io/pypi/v/lingualytics?style=flat-square)
+![](https://img.shields.io/pypi/status/lingualytics?style=flat-square&label=stage)
+![](https://img.shields.io/github/languages/count/lingualytics/py-lingualytics?style=flat-square)
+![](https://img.shields.io/github/languages/code-size/lingualytics/py-lingualytics?style=flat-square)
+![](https://img.shields.io/librariesio/github/lingualytics/py-lingualytics?style=flat-square)
+![](https://img.shields.io/github/license/lingualytics/py-lingualytics?style=flat-square)
 
 Lingualytics is a Python library for dealing with code mixed text.  
 Lingualytics is powered by powerful libraries like [Pytorch](https://pytorch.org/), [Transformers](https://huggingface.co/transformers), [Texthero](https://texthero.org/), [NLTK](http://www.nltk.org/) and [Scikit-learn](https://scikit-learn.org/).
@@ -41,7 +50,7 @@ pip install lingualytics
 ## 🕹️ Usage
 
 ### Preprocessing
-
+}}}}{
 ```python
 from lingualytics.preprocessing import remove_lessthan, remove_punctuation, remove_stopwords
 from lingualytics.stopwords import hi_stopwords,en_stopwords
