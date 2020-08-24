@@ -41,11 +41,48 @@ class CustomDataset(Dataset):
             return torch.tensor(self.input_ids[i], dtype=torch.long), torch.tensor(self.labels[i], dtype=torch.long)
 
 class Learner():
-        
-    def __init__(self, data_dir='./dataset', output_dir='./output', lr = 5e-5, train_bs = 64, eval_bs = 64, model_type = 'bert', 
-                model_name = 'bert-base-multilingual-cased', save_steps = 1, max_seq_length = 256, seed = 42,
-                weight_decay = 0.0, adam_epsilon = 1e-8, max_grad_norm = 1.0, num_train_epochs = 5, device = None, dataset=None):
-        
+    """
+    Return a list of n-grams in descending order of their occurences.
+
+    Parameters
+    ----------
+    data_dir : str
+        Path of the dataset.
+    output_dir : str
+        Path where the trained model and predictions will be saved.
+    dataset : str
+        The dataset to use from list of our available datasets. Set to None to use your own dataset.
+    lr : float
+        The learning rate for training.
+    num_train_epochs : int
+        Number of epochs to train.
+    train_bs : int
+        Batch size for training.
+    eval_bs : int
+        Batch size while evaluating.
+    model_type : str
+        The type of model to use from Huggingface.
+    model_name : str
+        The name of the model to use from Huggingface.
+    save_steps : int
+        Number of epochs to wait before saving the model again.
+    seed : int
+        The seed to set at all places.
+    max_seq_length : int
+        The maximum sequence length.
+    weight_decay : float
+        Weight decay for training.
+    adam_epsilon : float
+        Adam epsilon for training.
+    max_grad_norm : float
+        Maximum gradient norm.
+    device : str
+        Force the device 'cpu' or 'gpu' for Tensors
+         
+    """
+    def __init__(self, data_dir='./dataset', output_dir='./output', dataset=None, lr = 5e-5, num_train_epochs = 5, train_bs = 64, eval_bs = 64, 
+                model_type = 'bert', model_name = 'bert-base-multilingual-cased', save_steps = 1, seed = 42, max_seq_length = 256,
+                weight_decay = 0.0, adam_epsilon = 1e-8, max_grad_norm = 1.0, device = None):
         self.data_dir = Path(data_dir)
         self.output_dir = Path(output_dir)
         self.data_dir.mkdir(exist_ok=True)
@@ -352,6 +389,9 @@ class Learner():
             return results
 
     def fit(self):
+        """
+        Download and finetune the model on the dataset.
+        """
         # Training
 
         # logger.info('Training/evaluation parameters %s', args)
