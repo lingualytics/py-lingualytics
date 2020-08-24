@@ -1,5 +1,6 @@
 
 # Lingualytics : Easy codemixed analytics
+
 ![](https://img.shields.io/github/issues-raw/lingualytics/py-lingualytics?style=flat-square)
 ![](https://img.shields.io/pypi/dm/lingualytics?style=flat-square)
 ![](https://img.shields.io/website?url=https%3A%2F%2Flingualytics.tech%2F&style=flat-square)
@@ -50,7 +51,7 @@ pip install lingualytics
 ## 🕹️ Usage
 
 ### Preprocessing
-}}}}{
+
 ```python
 from lingualytics.preprocessing import remove_lessthan, remove_punctuation, remove_stopwords
 from lingualytics.stopwords import hi_stopwords,en_stopwords
@@ -69,21 +70,30 @@ print(df)
 
 ### Classification
 
-The train data path should have 4 files
-    - train.txt
-    - validation.txt
-    - test.txt
+Currently available datasets are
 
-You can just download `datasets/SAIL_2017/Processed Data/Devanagari` from the Github repository to try this out.
+- CS-EN-ES-CORPUS [Vilares, D., et al.](https://www.aclweb.org/anthology/W15-2902/)
+- SAIL-2017 [Dipankar Das., et al.](http://www.dasdipankar.com/SAILCodeMixed.html)
+- Sub-Word-LSTM [Joshi, Aditya, et al.](https://www.aclweb.org/anthology/C16-1234/)
 
 ```python
 from lingualytics.learner import Learner
 
 learner = Learner(model_type = 'bert',
                 model_name = 'bert-base-multilingual-cased',
-                dataset = 'SAIL-2017')
+                dataset = 'SAIL_2017')
 learner.fit()
 ```
+
+#### Custom Dataset
+
+The train data path should have 3 files
+
+- train.txt
+- validation.txt
+- test.txt
+
+Any file should have the text and label in a line, separated by a tab. Then change the `data_dir` to the path of your custom dataset.
 
 ### Find topmost n-grams
 
@@ -98,6 +108,10 @@ ngrams = get_ngrams(df['text'],n=2)
 
 print(ngrams[:10])
 ```
+
+## Documentation | API Reference
+
+Documentation is a work in progress! Have a look at it [here](https://lingualytics.github.io/py-lingualytics/).
 
 ## 👪 Contributing
 
