@@ -1,5 +1,3 @@
-# References : https://github.com/microsoft/GLUECoS/blob/master/Code/BertSequence.py
-
 import argparse
 import csv
 import io
@@ -413,3 +411,5 @@ class Learner():
         output_test_predictions_file = self.output_dir / 'test_predictions.txt'
         with open(output_test_predictions_file, "w") as writer:
             writer.write('\n'.join(preds))
+
+# References : https://github.com/microsoft/GLUECoS/blob/master/Code/BertSequence.py
