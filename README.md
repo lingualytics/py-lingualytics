@@ -1,11 +1,21 @@
+
 # Lingualytics : Easy codemixed analytics
+![](https://img.shields.io/github/issues-raw/lingualytics/py-lingualytics?style=flat-square)
+![](https://img.shields.io/pypi/dm/lingualytics?style=flat-square)
+![](https://img.shields.io/website?url=https%3A%2F%2Flingualytics.tech%2F&style=flat-square)
+![](https://img.shields.io/pypi/v/lingualytics?style=flat-square)
+![](https://img.shields.io/pypi/status/lingualytics?style=flat-square&label=stage)
+![](https://img.shields.io/github/languages/count/lingualytics/py-lingualytics?style=flat-square)
+![](https://img.shields.io/github/languages/code-size/lingualytics/py-lingualytics?style=flat-square)
+![](https://img.shields.io/librariesio/github/lingualytics/py-lingualytics?style=flat-square)
+![](https://img.shields.io/github/license/lingualytics/py-lingualytics?style=flat-square)
 
 Lingualytics is a Python library for dealing with code mixed text.  
 Lingualytics is powered by powerful libraries like [Pytorch](https://pytorch.org/), [Transformers](https://huggingface.co/transformers), [Texthero](https://texthero.org/), [NLTK](http://www.nltk.org/) and [Scikit-learn](https://scikit-learn.org/).
 
 ![train-demo](github/train-demo.gif)
 
-## Features
+## 🌟 Features
 
 1. Preprocessing
     - Remove stopwords
@@ -21,7 +31,7 @@ Lingualytics is powered by powerful libraries like [Pytorch](https://pytorch.org
         - Evaluate the classifier with metrics like accuracy, f1 score, precision and recall
         - Use the trained tokenizer to tokenize text
 
-## Pretrained Models
+## 🧠 Pretrained Models
 
 Checkout some codemix friendly models that we have trained using Lingualytics
 
@@ -29,7 +39,7 @@ Checkout some codemix friendly models that we have trained using Lingualytics
 - [bert-base-en-es-codemix-cased](https://huggingface.co/rohanrajpal/bert-base-en-es-codemix-cased)
 - [bert-base-en-hi-codemix-cased](https://huggingface.co/rohanrajpal/bert-base-en-hi-codemix-cased)
 
-## Installation
+## 💾 Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install lingualytics.
 
@@ -37,10 +47,10 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install lingual
 pip install lingualytics
 ```
 
-## Usage
+## 🕹️ Usage
 
 ### Preprocessing
-
+}}}}{
 ```python
 from lingualytics.preprocessing import remove_lessthan, remove_punctuation, remove_stopwords
 from lingualytics.stopwords import hi_stopwords,en_stopwords
@@ -89,14 +99,14 @@ ngrams = get_ngrams(df['text'],n=2)
 print(ngrams[:10])
 ```
 
-## Contributing
+## 👪 Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## License
+## ⚖️ License
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-## References
+## 📚 References
 
 1. Khanuja, Simran, et al. "GLUECoS: An Evaluation Benchmark for Code-Switched NLP." arXiv preprint arXiv:2004.12376 (2020).
