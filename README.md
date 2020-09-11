@@ -116,6 +116,19 @@ print(ngrams[:10])
 
 Documentation is a work in progress! Have a look at it [here](https://lingualytics.github.io/py-lingualytics/).
 
+## Development Roadmap
+
+We plan to add the following functionality in the coming weeks:
+
+- Language Identification (LID)
+- POS Tagging (POS)
+- Named Entity Recognition (NER)
+- Sentiment Analysis (SA)
+- Question Answering (QA)
+- Natural Language Inference (NLI)
+- Topic Modelling(LDA)
+- Fuzzy text matching at scale
+
 ## 👪 Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
