@@ -128,6 +128,8 @@ We plan to add the following functionality in the coming weeks:
 - Natural Language Inference (NLI)
 - Topic Modelling(LDA)
 - Fuzzy text matching at scale
+- Word Sense Disambiguation, TF-IDF , Keyword Extraction
+- data distribution over different languages
 
 ## 👪 Contributing
 
