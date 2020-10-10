@@ -1,5 +1,5 @@
 
-# Lingualytics : Easy codemixed analytics
+# Lingualytics : Indic analytics with codemix support
 
 ![](https://img.shields.io/github/issues-raw/lingualytics/py-lingualytics?style=flat-square)
 ![](https://img.shields.io/pypi/dm/lingualytics?style=flat-square)
@@ -11,7 +11,7 @@
 ![](https://img.shields.io/librariesio/github/lingualytics/py-lingualytics?style=flat-square)
 ![](https://img.shields.io/github/license/lingualytics/py-lingualytics?style=flat-square)
 
-Lingualytics is a Python library for dealing with code mixed text.  
+Lingualytics is a Python library for dealing with indic text.  
 Lingualytics is powered by powerful libraries like [Pytorch](https://pytorch.org/), [Transformers](https://huggingface.co/transformers), [Texthero](https://texthero.org/), [NLTK](http://www.nltk.org/) and [Scikit-learn](https://scikit-learn.org/).
 
 Checkout our demo video!  
