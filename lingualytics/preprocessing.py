@@ -40,3 +40,14 @@ def remove_stopwords(s: pd.Series, stopwords: list):
         A list of stopwords you want to remove.
     """
     return s.apply(lambda x: ' '.join([item for item in x.split() if item not in stopwords]))
+
+def remove_links(s: pd.Series) -> pd.Series:
+    """
+    Removes links from the text.
+
+    Parameters
+    ----------
+    s : pd.Series
+        A pandas series.
+    """
+    return s.str.replace('http\S+|www.\S+', '', case=False)
