@@ -2,6 +2,8 @@ import string
 import pandas as pd
 import collections
 
+hi_en_punctuation = string.punctuation+'।'+'॥'
+
 def remove_lessthan(s: pd.Series, length: int) -> pd.Series:
     """
     Removes words less than a specific length.
